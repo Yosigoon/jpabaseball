@@ -1,1 +1,1 @@
-# Spring Boot + JPA Study
+# Spring Boot & thymeleaf + JPA Study 
