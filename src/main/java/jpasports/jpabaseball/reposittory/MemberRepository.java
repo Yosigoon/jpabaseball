@@ -1,17 +1,17 @@
 package jpasports.jpabaseball.reposittory;
 
 import jpasports.jpabaseball.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member); //영속성 Context 에  Member 객체 넣고 트랜잭션 커밋 시점에 DB 반영
