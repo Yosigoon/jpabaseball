@@ -11,6 +11,6 @@ public class MemberForm {
     private String name;
 
     private String city;
-    private String address;
+    private String street;
     private String zipCode;
 }
