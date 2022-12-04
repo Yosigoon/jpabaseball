@@ -33,7 +33,7 @@ public class MemberController {
             return "members/createMemberForm";
         }
 
-        Address address = new Address(form.getCity(), form.getAddress(), form.getZipCode());
+        Address address = new Address(form.getCity(), form.getStreet(), form.getZipCode());
 
         Member member = new Member();
         member.setName(form.getName());

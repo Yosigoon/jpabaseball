@@ -9,16 +9,16 @@ import javax.persistence.Embeddable;
 public class Address {
 
     private String city;
-    private String address;
+    private String street;
     private String zipCode;
 
     //JPA에서 protected 허용 함부로 new 생성 방지
     protected Address() {
     }
 
-    public Address(String city, String address, String zipCode) {
+    public Address(String city, String street, String zipCode) {
         this.city = city;
-        this.address = address;
+        this.street = street;
         this.zipCode = zipCode;
     }
 }
