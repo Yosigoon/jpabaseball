@@ -2,6 +2,7 @@ package jpasports.jpabaseball.domain.item;
 
 import jpasports.jpabaseball.domain.Category;
 import jpasports.jpabaseball.exception.NotEnoughStockException;
+import jpasports.jpabaseball.service.UpdateItemDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,5 +47,15 @@ public abstract class Item {
             throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
+    }
+
+    /**
+     * Item Update
+     * @param updateItemDto
+     */
+    public void change(UpdateItemDto updateItemDto) {
+        this.name = updateItemDto.getName();
+        this.price = updateItemDto.getPrice();
+        this.stockQuantity = updateItemDto.getStockQuantity();
     }
 }
