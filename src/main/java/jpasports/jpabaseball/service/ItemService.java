@@ -20,6 +20,16 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    @Transactional //Entity 사용 실무에서는 변경감지 사용! merge 사용하지말자!
+    public void updateItem(Long itemId, UpdateItemDto updateItemDto) {
+        Item findItem = itemRepository.findOne(itemId);
+        //findItem.change(price, name, stockQuantiy);
+        //change 같은 의미있는 메소드를 사용하자 set 사용하지말자
+        findItem.setName(updateItemDto.getName());
+        findItem.setPrice(updateItemDto.getPrice());
+        findItem.setStockQuantity(updateItemDto.getStockQuantity());
+    }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }

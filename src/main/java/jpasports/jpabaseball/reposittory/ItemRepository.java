@@ -14,11 +14,11 @@ public class ItemRepository {
 
     private final EntityManager em;
 
-    public void save(Item item) { //업데이트와 비슷한 개념
+    public void save(Item item) {
         if(ObjectUtils.isEmpty(item.getId())){
             em.persist(item);
         }else{
-            em.merge(item);
+            em.merge(item); //주의! -> 특정데이터만 변경하기 위해서는 새로 update 변경감지 만들자! 값이 없는 경우 null 업데이트 위험이 있다.
         }
     }
 
