@@ -2,6 +2,7 @@ package jpasports.jpabaseball.controller;
 
 import jpasports.jpabaseball.domain.item.Glove;
 import jpasports.jpabaseball.service.ItemService;
+import jpasports.jpabaseball.service.UpdateItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,16 +59,8 @@ public class ItemController {
     }
 
     @PostMapping("/items/{itemId}/edit")
-    public String updateItem(@PathVariable("itemId") String itemId, @ModelAttribute("form") GloveForm form) {
-        Glove glove = new Glove();
-        glove.setId(form.getId());
-        glove.setName(form.getName());
-        glove.setPrice(form.getPrice());
-        glove.setStockQuantity(form.getStockQuantity());
-        glove.setBrand(form.getBrand());
-        glove.setPosition(form.getPosition());
-
-        itemService.saveItem(glove);
+    public String updateItem(@PathVariable("itemId") Long itemId, @ModelAttribute("form") UpdateItemDto itemDto) {
+        itemService.updateItem(itemId, itemDto);
         return "redirect:/items";
     }
 }
